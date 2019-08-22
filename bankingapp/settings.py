@@ -1,5 +1,6 @@
 import os
 from datetime import timedelta
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -10,7 +11,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -59,16 +59,17 @@ WSGI_APPLICATION = 'bankingapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'bank',
-        'USER': 'sid',
-        'PASSWORD': '2284491',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #         'NAME': 'bank',
+        #         'USER': 'sid',
+        #         'PASSWORD': '2284491',
+        #         'HOST': '127.0.0.1',
+        #         'PORT': '5432',
     }
 }
 
-
+DATABASES['default'] = dj_database_url.config(
+    default="postgres://ziqhtqwfvstbdt:6034fd30ba314c3847ca9da5bfe5e29ade521e95e98e25e0e876c619b8ad6773@ec2-107-22-228-141.compute-1.amazonaws.com:5432/d93v2akhf9d97q")
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -84,7 +85,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 LANGUAGE_CODE = 'en-us'
 
