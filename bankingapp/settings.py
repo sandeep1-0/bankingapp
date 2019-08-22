@@ -7,7 +7,7 @@ SECRET_KEY = '880fpqa*zk1@v94=7s^#drw+b6-6=6@l  s^_6%42w^)hp^pr#po'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
