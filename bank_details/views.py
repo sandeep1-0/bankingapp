@@ -9,10 +9,10 @@ from rest_framework.response import Response
 
 class BankIfsc(APIView):
 
-    def post(self, request, format=None):
-        obj = request.data
-        ifsc = obj.get('ifsc')
-        info = BankDetails.objects.filter(ifsc=ifsc).values()
+    def get(self, request, format=None):
+        obj = request.GET.get('ifsc')
+        # ifsc = obj.get('ifsc')
+        info = BankDetails.objects.filter(ifsc=obj).values()
         serializers = BankSerializers(info, many=True)
         return Response(serializers.data)
 
