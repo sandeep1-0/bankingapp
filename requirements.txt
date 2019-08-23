@@ -4,3 +4,4 @@ djangorestframework-simplejwt==4.3.0
 psycopg2
 dj-database-url==0.2.1
 gunicorn==19.9.0
+whitenoise==4.1.3
