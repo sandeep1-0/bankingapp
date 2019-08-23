@@ -11,7 +11,6 @@ class BankIfsc(APIView):
 
     def get(self, request, format=None):
         obj = request.GET.get('ifsc')
-        # ifsc = obj.get('ifsc')
         info = BankDetails.objects.filter(ifsc=obj).values()
         serializers = BankSerializers(info, many=True)
         return Response(serializers.data)
@@ -19,10 +18,9 @@ class BankIfsc(APIView):
 
 class BankName(APIView):
 
-    def post(self, request, format=None):
-        obj = request.data
-        bank = obj.get('bank_name')
-        city = obj.get('city')
+    def get(self, request, format=None):
+        bank = request.GET.get('bank_name')
+        city = request.GET.get('city')
         info1 = BankDetails.objects.filter(bank_name=bank, city=city).values()
         serializers = BankSerializers(info1, many=True)
         return Response(serializers.data)
